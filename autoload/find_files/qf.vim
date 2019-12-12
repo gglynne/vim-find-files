@@ -10,7 +10,8 @@ function find_files#qf#set(list_type, files, title)
   let filenames = map(a:files, 'v:val . ":1:" . fnamemodify(v:val, ":t")')
 
   if a:list_type ==# 'qf'
-    cexpr l:filenames
+    "cexpr l:filenames
+    cgetexpr l:filenames " don't open the first file
 
     " Set QF window title
     if !empty(a:title)
